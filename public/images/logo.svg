@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="295.0187 137.0741 43.768 70.514" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1, 0, 0, 1, 266.9027099609375, 121.83110046386719)">
+    <line fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="28.116" y1="40.043" x2="28.116" y2="54.85" style="stroke: rgb(251, 139, 36);"/>
+    <g>
+      <polyline fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="    56.406,40.043 64.137,15.243 71.884,40.043   " style="stroke: rgb(251, 139, 36);"/>
+      <polyline fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="    28.116,40.043 35.846,15.243 43.593,40.043   " style="stroke: rgb(251, 139, 36);"/>
+      <line fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="43.593" y1="40.043" x2="56.406" y2="40.043" style="stroke: rgb(251, 139, 36);"/>
+      <line fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="71.884" y1="40.043" x2="71.884" y2="54.85" style="stroke: rgb(251, 139, 36);"/>
+      <polyline fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="    50.001,85.018 28.116,55.633 45.076,65.027 50.001,48.926 54.924,65.027 71.884,55.387 50.001,85.018   " style="stroke: rgb(251, 139, 36);"/>
+      <path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="    M37.736,51.822c2.103-5.185,2.103-5.185,6.589-2.758"/>
+      <path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="    M55.704,48.979c4.53-2.31,4.53-2.31,6.532,2.925"/>
+      <ellipse stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="50" cy="81.407" rx="4.465" ry="4.35"/>
+      <polyline fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="    69.168,40.442 64.139,24.348 59.123,40.442   " style="stroke: rgb(251, 139, 36);"/>
+      <polyline fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="    40.876,40.442 35.849,24.348 30.833,40.442   " style="stroke: rgb(251, 139, 36);"/>
+    </g>
+  </g>
+</svg>
