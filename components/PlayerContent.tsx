@@ -12,7 +12,6 @@ import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
 import { useEffect, useState } from "react";
 import useSound from 'use-sound';
-
 import ChatExample from "./ChatExample";
 
 
@@ -29,41 +28,27 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const [ volume, setVolume ] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    const [externalIsPlaying, setExternalIsPlaying] = useState(false);
-    const [useUrl, setUseUrl] = useState("")
-
     const Icon = isPlaying ? BsPauseFill : BsPlayFill;
     const VolumeIcon = volume === 0 ?  HiSpeakerXMark : HiSpeakerWave ;
 
     
     const [currentTime, setCurrentTime] = useState(0);
-    const [seekTime, setSeekTime] = useState(0);
     const [rangeValue, setRangeValue] = useState(0);
-        // useEffect(() => {
-        // const interval = setInterval(() => {
-        //   if (isPlaying) {
-        //     setCurrentTime((prevTime) => prevTime + 1);
-        //   }
-        // }, 1000);
+    
+    const formatTime = (timeInSeconds: number): string => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    return formattedTime;
+    };
 
-        
-
-      const formatTime = (timeInSeconds: number): string => {
-        const minutes = Math.floor(timeInSeconds / 60);
-        const seconds = Math.floor(timeInSeconds % 60);
-        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        return formattedTime;
-      };
-
-      const formatDuration = (timeInMilliseconds: number): string => {
-        const totalSeconds = Math.floor(timeInMilliseconds / 1000);
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        return formattedTime;
-      };
-
-     
+    const formatDuration = (timeInMilliseconds: number): string => {
+    const totalSeconds = Math.floor(timeInMilliseconds / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    return formattedTime;
+    };
 
     const onPlayNext = () => {
         if(player.ids.length === 0) {
@@ -103,26 +88,18 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             volume: volume,
             onplay: () => {
                 setIsPlaying(true)
-                // setExternalIsPlaying(true);
-                // setUseUrl(songUrl)
-
             },
             onend: () => {
                 setIsPlaying(false);
                 onPlayNext();
-                // setExternalIsPlaying(false);
             },
             onpause: () => {
                 setIsPlaying(false)
-                // setExternalIsPlaying(false);
             },
             format: ['mp3']
         }
     );
     
-
-
-
     useEffect(() => {
         const interval = setInterval(() => {
           if (isPlaying && currentTime < duration / 1000) {
@@ -132,17 +109,10 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         }, 1000);
     
         return () => clearInterval(interval);
-      }, [isPlaying, currentTime, duration]);
-
-
-
-
-
-
+    }, [isPlaying, currentTime, duration]);
 
     useEffect(() => {
         sound?.play();
-        // setExternalIsPlaying(true);
         return () => {
             sound?.unload();
             setCurrentTime(0);
@@ -154,11 +124,8 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const handlePlay = () => {
         if(!isPlaying){
             play();
-            // setExternalIsPlaying(true);
         }else{
             pause();
-            // setExternalIsPlaying(false);
-
         }
     }
 
@@ -169,10 +136,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             setVolume(0);
         }
     }
-    // const handleSeek = () => {
-    //     sound.seek(seekTime); // converting seekTime back to milliseconds for seek function
-    //     setCurrentTime(seekTime);
-    //   };
+    
       const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = parseInt(e.target.value);
         setRangeValue(newValue);
@@ -186,7 +150,6 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
       };
     return (
         <div className=" relative">
-            {/* <AudioVisualizer audioSrc={songUrl} externalControl={{ isPlaying: externalIsPlaying, setPlaying: setExternalIsPlaying }} /> */}
 
             <div className="grid grid-cols-1  xl:grid-cols-3 h-full">
                 <div className="flex w-full justify-start">
@@ -248,14 +211,12 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                             className="text-neutral-400 cursor-pointer hover:text-white transition"
                         />
                     </div>
-
                 </div>
                 
 
                 <div className="hidden md:flex w-full justify-end pr-2">
                    
                     <div className="flex items-center gap-x-2 w-[120px]">
-
                         <VolumeIcon 
                             onClick={toggleMute}
                             className="cursor-pointer"
@@ -266,7 +227,6 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                             onChange={(value) => setVolume(value)}
                         />
                     </div>
-                    
                 </div>
             </div>
         </div>

@@ -3,16 +3,12 @@
 import { Song } from '@/types';
 import React, { useState } from 'react';
 import { MdLightbulbOutline } from "react-icons/md";
-import { RiPsychotherapyFill } from "react-icons/ri";
 import Image from 'next/image';
-// import TypingAnimation from './TypingAnimation';
 import { twMerge } from 'tailwind-merge';
 
 
 interface ChatProps {
-//   prompts?: string;
   data: Song;
-//   onClick?: (id: string) => void;
 }
 
 interface Prompt {
@@ -22,7 +18,6 @@ interface Prompt {
 
 const Chat: React.FC<ChatProps> = ({
     data,
-    // onClick
 }) => {
     const prompts: Prompt[] = [
         { text: `5 Intersting facts about musician ${data.artists.artist_name} with 50 words`, image: '/images/artist_info.svg' },
@@ -72,9 +67,7 @@ const Chat: React.FC<ChatProps> = ({
 
     
     const [showElement, setShowElement] = useState(false);
-    const handleChat = () => {
-        setMessage('');
-    };
+    
     const handleClick = () => {
         setShowElement(!showElement);
     };
@@ -108,7 +101,6 @@ const Chat: React.FC<ChatProps> = ({
                     {response}
                 </div>
             )}
-                {/* <TypingAnimation text={message} /> */}
             </div>
             <div className={twMerge(`flex gap-5 ${response && 'mt-4'}`)}>
                 {prompts.map((prompt, index) => (

@@ -41,10 +41,8 @@ const AddToPlaylistButton: React.FC<AddToPlaylistButtonProps> = ({
 
   ////Playllist 
 
-  const [selectedPlaylist, setSelectedPlaylist] = useState<string>('');
   const [userPlaylists, setUserPlaylists] = useState<PlaylistItem[]>([]);
 
-  // const [songExistsInPlaylist, setSongExistsInPlaylist] = useState<boolean>(false);
 
   const [songExistsInPlaylist, setSongExistsInPlaylist] = useState<Record<string, boolean>>({});
 
@@ -168,8 +166,6 @@ const AddToPlaylistButton: React.FC<AddToPlaylistButtonProps> = ({
     )
   }
   return (
-    
-       
       <div className="flex gap-4 relative">
       
         <div className=" cursor-pointer" onClick={handleClick}>
